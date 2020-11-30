@@ -1,0 +1,38 @@
+body {
+    background-color: #363532;
+}
+
+#principal {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 5%;
+}
+
+#tabuleiro {
+    background-color: #eeeed2;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.v{
+    background-color: #769656;
+}
+
+.quadrado {
+	width: 75px;
+	height: 75px;
+    cursor: pointer;
+}
+
+img {
+    width: 75px;
+    height: 75px;
+}
+
+.TP {
+    background-image: url("../imagens/torre-preto.png"); 
+    background-size: 100%;
+}

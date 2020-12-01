@@ -25,14 +25,19 @@ body {
 	width: 75px;
 	height: 75px;
     cursor: pointer;
+    background-size: 100%;
 }
 
 img {
     width: 75px;
     height: 75px;
+    
 }
 
-.TP {
-    background-image: url("../imagens/torre-preto.png"); 
-    background-size: 100%;
+.TP { background-image: url("../imagens/torre-preto.png"); }
+.TB { background-image: url("../imagens/torre-branco.png"); }
+
+.amarelo {
+    background-color: yellow;
+    opacity: 0.5;
 }

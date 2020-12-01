@@ -1,31 +1,37 @@
-var rodada = "B", jogador = "B", c = 0, vencedor = "", jx = 0, jo = 0, e = 0, iter = 0;
+import { torreBranco } from '../Peças/torreBranco.js';
+import { desativa, mostraJogadas, trocaRodada} from './jogada.js'
 
-var letras = ["a", "b", "c", "d", "e", "f", "g", "h"];
-var numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+var rodada = "Branco";
 
-var branco = "B";
-var preto= "P";
+export var arrLetras = ["a", "b", "c", "d", "e", "f", "g", "h"];
+var numeros = [1, 2, 3, 4, 5, 6, 7, 8];
+
+var branco = "Branco";
+var preto = "Preto";
 
 document.querySelectorAll('.quadrado').forEach(item => {
     item.addEventListener('click', event => {
-
-        console.log("Xadrex");
-        c++;
         
-        mostraJogadas(item.id, item.getAttribute());
-
-        console.log("jogador " + rodada);
-        console.log(tabuleiro);
-
-        if (venceu(tabuleiro, rodada)) {
-            funcVencedor();
-            return;
-        } else if (c > 8) {
-            empate();
-            return;
-        } else {
-            trocaRodada();
-        }
-
+        desativa(item);
+        principal(item);
+        
     })
 })
+
+function principal(item) {
+    if (!$(item).hasClass("nd")) {
+
+        if (rodada == "Branco") {
+            
+        } else {
+
+        }
+        
+        mostraJogadas(item);
+        var itemAnterior = item;
+
+        console.log("Rodada: " + rodada);
+
+        rodada = trocaRodada(rodada);
+    }
+}

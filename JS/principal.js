@@ -1,37 +1,34 @@
-import { torreBranco } from '../Peças/torreBranco.js';
-import { desativa, mostraJogadas, trocaRodada} from './jogada.js'
-
 var rodada = "Branco";
 
-export var arrLetras = ["a", "b", "c", "d", "e", "f", "g", "h"];
-var numeros = [1, 2, 3, 4, 5, 6, 7, 8];
+const arrLetras = ["a", "b", "c", "d", "e", "f", "g", "h"];
+const arrnumeros = [1, 2, 3, 4, 5, 6, 7, 8];
+var obj = [];
+var x = true;
 
-var branco = "Branco";
-var preto = "Preto";
 
-document.querySelectorAll('.quadrado').forEach(item => {
-    item.addEventListener('click', event => {
-        
-        desativa(item);
-        principal(item);
-        
-    })
-})
-
-function principal(item) {
-    if (!$(item).hasClass("nd")) {
-
-        if (rodada == "Branco") {
-            
-        } else {
-
+function seleciona(letra, numero) {
+    var id = letra + numero;
+    
+    if (obj.length < 1) {
+        obj.push(mostraJogadas(id));
+        if (obj[0] == null) {
+            obj.pop(0);
         }
-        
-        mostraJogadas(item);
-        var itemAnterior = item;
-
-        console.log("Rodada: " + rodada);
-
-        rodada = trocaRodada(rodada);
+    } else {
+        obj.push(id);
+    }
+    
+    if(x == true) {
+        x = false;
+        if (obj.length < 1) {
+            x = true;
+        }
+    } else {
+        fazJogada(obj);
+        let elements = document.getElementsByClassName('amarelo');
+        while(elements.length > 0){
+            elements[0].classList.remove('amarelo');
+        }
+        x = true;
     }
 }

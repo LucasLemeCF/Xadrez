@@ -17,7 +17,7 @@ body {
     flex-flow: wrap;
 }
 
-.v{
+.v {
     background-color: #769656;
 }
 
@@ -38,6 +38,7 @@ img {
 .TB { background-image: url("../imagens/torre-branco.png"); }
 
 .amarelo {
+    z-index: 1;
     background-color: yellow;
     opacity: 0.5;
 }

@@ -1,5 +1,5 @@
-function torre(idItem, peca) {
-    console.log("torre " + idItem);
+function dama(idItem, peca) {
+    console.log("dama " + idItem);
 
     let letra = idItem.charAt(0);
     let numero = parseInt(idItem.charAt(1));
@@ -19,17 +19,24 @@ function torre(idItem, peca) {
                     } else {
                         arr.push(id);
                         document.getElementById(id).classList.add('amarelo');
-                    }
+                    } 
                 } 
             } 
             j++;                
         }
     }
 
+    //movimento torre
     coordenada(1, 0);
     coordenada(-1, 0);
     coordenada(0, 1);
     coordenada(0, -1);
+
+    //movimendo bispo
+    coordenada(1, 1);
+    coordenada(1, -1);
+    coordenada(-1, -1);
+    coordenada(-1, 1);
 
     return arr;
 }

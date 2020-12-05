@@ -1,7 +1,5 @@
 var rodada = "Branco";
 
-const arrLetras = ["a", "b", "c", "d", "e", "f", "g", "h"];
-const arrnumeros = [1, 2, 3, 4, 5, 6, 7, 8];
 var obj = [];
 var x = true;
 
@@ -16,6 +14,7 @@ function seleciona(letra, numero) {
         }
     } else {
         obj.push(id);
+        console.log();
     }
     
     if(x == true) {
@@ -31,4 +30,46 @@ function seleciona(letra, numero) {
         }
         x = true;
     }
+}
+
+//mostra as jogadas possiveis
+function mostraJogadas(id) {
+    if (document.getElementById(id).classList.contains(temAlgo(id))) {
+        var peca = temAlgo(id);
+        if (peca.charAt(0) == "T") {
+            var arr = torre(id, peca); 
+        } else if (peca.charAt(0) == "C") {
+            var arr = cavalo(id, peca); 
+        } else if (peca.charAt(0) == "B") {
+            var arr = bispo(id, peca); 
+        } else if (peca.charAt(0) == "D") {
+            var arr = dama(id, peca); 
+        } else if (peca.charAt(0) == "R") {
+            var arr = rei(id, peca); 
+        }
+        var obj = [id, arr, peca];
+        return obj;  
+    } else {
+        return null;
+    }
+}
+
+//move a peça
+function fazJogada(obj) {
+    let id = obj[0][0];
+    let amarelo = obj[0][1];
+    let peca = obj[0][2];
+    let ondeVai = obj[1];
+    for (let i = 0; i < amarelo.length; i++) {
+        if (ondeVai ==  amarelo[i]) {
+            console.log('para ' + ondeVai);
+            console.log("");
+            document.getElementById(ondeVai).classList.remove(temAlgo(ondeVai));
+            document.getElementById(ondeVai).classList.add(peca);
+            document.getElementById(id).classList.remove(peca);
+        }       
+    }
+    
+    obj.pop(0);
+    obj.pop(1);
 }

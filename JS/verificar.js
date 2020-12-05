@@ -1,6 +1,13 @@
-var pecasAbreviacao = ["TB", "CB", "BB", "DB", "RB", "PB", "TP", "CP", "BP", "DP", "RP", "PP"];
-var pecasAbreviacaoB = ["TB", "CB", "BB", "DB", "RB", "PB"];
-var pecasAbreviacaoP = ["TP", "CP", "BP", "DP", "RP", "PP"];
+const pecasAbreviacao = ["TB", "CB", "BB", "DB", "RB", "PB", "TP", "CP", "BP", "DP", "RP", "PP"];
+const pecasAbreviacaoB = ["TB", "CB", "BB", "DB", "RB", "PB"];
+const pecasAbreviacaoP = ["TP", "CP", "BP", "DP", "RP", "PP"];
+const arrLetras = ["a", "b", "c", "d", "e", "f", "g", "h"];
+const arrnumeros = [1, 2, 3, 4, 5, 6, 7, 8];
+
+var tabuleiro = []
+document.querySelectorAll('.quadrado').forEach(element => {
+    tabuleiro.push(element.id);
+});
 
 //verifica se tem alguma peça
 function temAlgo(id) {
@@ -43,29 +50,22 @@ function temAlgoP(id) {
 }
 
 //verifica se pode atacar a peça
-function podeAtacar(idItem, peca, arr, id, i, iMax) {
+function podeAtacar(idItem, peca, arr, id) {
     if (peca.charAt(1) == "B") {
         if (temAlgoP(id) != false && idItem != temAlgo(id)) {
             arr.push(id);
             document.getElementById(id).classList.add('amarelo');
-            i = iMax+1
+            return true;
         } else if (temAlgoB(id) != false && idItem != temAlgo(id)) {
-            i = iMax;
-        } else {
-            arr.push(id);
-            document.getElementById(id).classList.add('amarelo');
-        }          
+            return false;
+        }      
     } else {
         if (temAlgoB(id) != false && idItem != temAlgo(id)) {
             arr.push(id);
             document.getElementById(id).classList.add('amarelo');
-            i = iMax+1;
+            return true;
         } else if (temAlgoP(id) != false && idItem != temAlgo(id)) {
-            i = iMax;
-        } else {
-            arr.push(id);
-            document.getElementById(id).classList.add('amarelo');
-        }          
+            return false;
+        }       
     }
-    return i;
 }

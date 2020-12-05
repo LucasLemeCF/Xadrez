@@ -1,5 +1,5 @@
-function torre(idItem, peca) {
-    console.log("torre " + idItem);
+function bispo(idItem, peca) {
+    console.log("bispo " + idItem);
 
     let letra = idItem.charAt(0);
     let numero = parseInt(idItem.charAt(1));
@@ -14,8 +14,10 @@ function torre(idItem, peca) {
                 if (id == tabuleiro[index]) {
                     if (podeAtacar(idItem, peca, arr, id) == true) {
                         i = 9;
+                        j = 9;
                     } else if (podeAtacar(idItem, peca, arr, id) == false) {
                         i = 8;
+                        j = 8;
                     } else {
                         arr.push(id);
                         document.getElementById(id).classList.add('amarelo');
@@ -26,10 +28,10 @@ function torre(idItem, peca) {
         }
     }
 
-    coordenada(1, 0);
-    coordenada(-1, 0);
-    coordenada(0, 1);
-    coordenada(0, -1);
+    coordenada(1, 1);
+    coordenada(1, -1);
+    coordenada(-1, -1);
+    coordenada(-1, 1);
 
     return arr;
 }

@@ -2,6 +2,31 @@ body {
     background-color: #363532;
 }
 
+.verde {
+    color:#769656;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+.branco {
+    color:#eeeed2;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+
+.letra {
+    margin-top: 50px;
+    text-align: right;
+    width: 73px;
+    font-weight: bolder;
+    position: absolute;
+}
+
+
 #principal {
     display: flex;
     justify-content: center;
@@ -17,15 +42,16 @@ body {
     flex-flow: wrap;
 }
 
-.v {
-    background-color: #769656;
+.vd {
+    background-color:#769656;
 }
 
 .quadrado {
 	width: 75px;
 	height: 75px;
-    cursor: pointer;
     background-size: 100%;
+    display: flex;
+    flex-flow: wrap;
 }
 
 img {
@@ -34,16 +60,16 @@ img {
     
 }
 
-.TP { background-image: url("../imagens/torre-preto.png"); }
-.TB { background-image: url("../imagens/torre-branco.png"); }
-.CB { background-image: url("../imagens/cavalo-branco.png"); }
-.CP { background-image: url("../imagens/cavalo-preto.png"); }
-.BB { background-image: url("../imagens/bispo-branco.png"); }
-.BP { background-image: url("../imagens/bispo-preto.png"); }
-.DB { background-image: url("../imagens/dama-branco.png"); }
-.DP { background-image: url("../imagens/dama-preto.png"); }
-.RB { background-image: url("../imagens/rei-branco.png"); }
-.RP { background-image: url("../imagens/rei-preto.png"); }
+.TP { background-image: url("../imagens/torre-preto.png"); cursor: pointer;}
+.TB { background-image: url("../imagens/torre-branco.png"); cursor: pointer;}
+.CB { background-image: url("../imagens/cavalo-branco.png"); cursor: pointer;}
+.CP { background-image: url("../imagens/cavalo-preto.png"); cursor: pointer;}
+.BB { background-image: url("../imagens/bispo-branco.png"); cursor: pointer;}
+.BP { background-image: url("../imagens/bispo-preto.png"); cursor: pointer;}
+.DB { background-image: url("../imagens/dama-branco.png"); cursor: pointer;}
+.DP { background-image: url("../imagens/dama-preto.png"); cursor: pointer;}
+.RB { background-image: url("../imagens/rei-branco.png"); cursor: pointer;}
+.RP { background-image: url("../imagens/rei-preto.png"); cursor: pointer;}
 
 .amarelo {
     background-color: yellow;

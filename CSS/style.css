@@ -67,15 +67,16 @@ img {
     background-color:#e97763;
 }
 
-.TP { background-image: url("../imagens/torre-preto.png"); cursor: pointer;}
-.TB { background-image: url("../imagens/torre-branco.png"); cursor: pointer;}
-.CB { background-image: url("../imagens/cavalo-branco.png"); cursor: pointer;}
-.CP { background-image: url("../imagens/cavalo-preto.png"); cursor: pointer;}
-.BB { background-image: url("../imagens/bispo-branco.png"); cursor: pointer;}
-.BP { background-image: url("../imagens/bispo-preto.png"); cursor: pointer;}
-.DB { background-image: url("../imagens/dama-branco.png"); cursor: pointer;}
-.DP { background-image: url("../imagens/dama-preto.png"); cursor: pointer;}
-.RB { background-image: url("../imagens/rei-branco.png"); cursor: pointer;}
-.RP { background-image: url("../imagens/rei-preto.png"); cursor: pointer;}
-.PB { background-image: url("../imagens/peao-branco.png"); cursor: pointer;}
-.PP { background-image: url("../imagens/peao-preto.png"); cursor: pointer;}
+/*Imagem das peças tirado do site chess.com*/
+.TB { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wr.png'); cursor: pointer;}
+.TP { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/br.png'); cursor: pointer;}
+.CB { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wn.png'); cursor: pointer;}
+.CP { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bn.png'); cursor: pointer;}
+.BB { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wb.png'); cursor: pointer;}
+.BP { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bb.png'); cursor: pointer;}
+.DB { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wq.png'); cursor: pointer;}
+.DP { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bq.png'); cursor: pointer;}
+.RB { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wk.png'); cursor: pointer;}
+.RP { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bk.png'); cursor: pointer;}
+.PB { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wp.png'); cursor: pointer;}
+.PP { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bp.png'); cursor: pointer;}

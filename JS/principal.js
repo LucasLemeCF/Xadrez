@@ -1,6 +1,7 @@
 var rodada = "Branco";
 
 var obj = [];
+var objAtaque = [];
 var x = true;
 
 
@@ -22,11 +23,15 @@ function seleciona(letra, numero) {
         if (obj.length < 1) {
             x = true;
         }
-    } else {
+    } else {  
         fazJogada(obj);
-        let elements = document.getElementsByClassName('amarelo');
-        while(elements.length > 0){
-            elements[0].classList.remove('amarelo');
+        let elements1 = document.getElementsByClassName('amarelo');
+        let elements2 = document.getElementsByClassName('vermelho');
+        while(elements1.length > 0){
+            elements1[0].classList.remove('amarelo');
+        }
+        while(elements2.length > 0){
+            elements2[0].classList.remove('vermelho');
         }
         x = true;
     }
@@ -46,6 +51,8 @@ function mostraJogadas(id) {
             var arr = dama(id, peca); 
         } else if (peca.charAt(0) == "R") {
             var arr = rei(id, peca); 
+        } else if (peca.charAt(0) == "P") {
+            var arr = peao(id, peca); 
         }
         var obj = [id, arr, peca];
         return obj;  

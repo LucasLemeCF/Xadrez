@@ -12,9 +12,11 @@ function torre(idItem, peca) {
             let id = (arrLetras[indexLetra] + (numero + (j * sinal2)).toString());
             for (let index = 0; index < 64; index++) {
                 if (id == tabuleiro[index]) {
-                    if (podeAtacar(idItem, peca, arr, id) == true) {
+                    if (podeAtacar(idItem, peca, id) == true) {
+                        arr.push(id);
+                        document.getElementById(id).classList.add('vermelho');
                         i = 9;
-                    } else if (podeAtacar(idItem, peca, arr, id) == false) {
+                    } else if (podeAtacar(idItem, peca, id) == false) {
                         i = 8;
                     } else {
                         arr.push(id);

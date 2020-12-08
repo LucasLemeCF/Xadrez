@@ -11,7 +11,11 @@ function rei(idItem, peca) {
         let id = (arrLetras[indexLetra] + (numero + (j * sinal2)).toString());
         for (let index = 0; index < 64; index++) {
             if (id == tabuleiro[index]) {
-                if (podeAtacar(idItem, peca, arr, id) == null) {
+                if (podeAtacar(idItem, peca, id) == true) {
+                    arr.push(id);
+                    document.getElementById(id).classList.add('vermelho');
+                }
+                if (podeAtacar(idItem, peca, id) == null) {
                     arr.push(id);
                     document.getElementById(id).classList.add('amarelo');
                 } 

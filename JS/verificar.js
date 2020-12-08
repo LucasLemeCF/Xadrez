@@ -50,19 +50,15 @@ function temAlgoP(id) {
 }
 
 //verifica se pode atacar a peça
-function podeAtacar(idItem, peca, arr, id) {
+function podeAtacar(idItem, peca, id) {
     if (peca.charAt(1) == "B") {
         if (temAlgoP(id) != false && idItem != temAlgo(id)) {
-            arr.push(id);
-            document.getElementById(id).classList.add('amarelo');
             return true;
         } else if (temAlgoB(id) != false && idItem != temAlgo(id)) {
             return false;
         }      
     } else {
         if (temAlgoB(id) != false && idItem != temAlgo(id)) {
-            arr.push(id);
-            document.getElementById(id).classList.add('amarelo');
             return true;
         } else if (temAlgoP(id) != false && idItem != temAlgo(id)) {
             return false;

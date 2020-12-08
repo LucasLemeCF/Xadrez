@@ -1,23 +1,28 @@
-var rodada = "Branco";
-
+var rodada = "B";
 var obj = [];
-var objAtaque = [];
+var cor = null;
 var x = true;
-
 
 function seleciona(letra, numero) {
     var id = letra + numero;
     
-    if (obj.length < 1) {
-        obj.push(mostraJogadas(id));
-        if (obj[0] == null) {
-            obj.pop(0);
+    //sistema de rodada
+    if(x == true) { cor = temAlgo(id).charAt(1); }
+
+    //mostra as jogadas possiveis
+    if (rodada == cor) {
+        if (obj.length < 1) {
+            
+            obj.push(mostraJogadas(id));
+            if (obj[0] == null) {
+                obj.pop(0);
+            }
+        } else {
+            obj.push(id);
         }
-    } else {
-        obj.push(id);
-        console.log();
     }
-    
+        
+    //caso a peça seja selecionada, realiza o movimento
     if(x == true) {
         x = false;
         if (obj.length < 1) {
@@ -34,7 +39,7 @@ function seleciona(letra, numero) {
             elements2[0].classList.remove('vermelho');
         }
         x = true;
-    }
+    } 
 }
 
 //mostra as jogadas possiveis
@@ -70,13 +75,21 @@ function fazJogada(obj) {
     for (let i = 0; i < amarelo.length; i++) {
         if (ondeVai ==  amarelo[i]) {
             console.log('para ' + ondeVai);
-            console.log("");
+            console.log("");     
             document.getElementById(ondeVai).classList.remove(temAlgo(ondeVai));
             document.getElementById(ondeVai).classList.add(peca);
-            document.getElementById(id).classList.remove(peca);
+            document.getElementById(id).classList.remove(peca);   
         }       
     }
-    
+    rodada == "B" ? rodada = "P" : rodada = "B";
+    console.log("rodada = " + rodada);
     obj.pop(0);
     obj.pop(1);
+}
+
+//mostra de quem é a rodada no console
+if (rodada == "B") {
+    console.log("rodada = Branco");
+} else {
+    console.log("rodada = Preto");
 }

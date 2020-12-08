@@ -25,7 +25,6 @@ function peao(idItem, peca) {
                 id = (letra + (numero - 1));
             }       
         } 
-        console.log(temAlgo(id) != false)
         for (let j = 0; j < 64; j++) {
             if (id == tabuleiro[j]) {
                 if (podeAtacar(idItem, peca, id) == null) {
@@ -44,7 +43,6 @@ function peao(idItem, peca) {
                 id = (arrLetras[indexLetra] + (numero - 1));
             }
             
-            console.log(id);
             for (let j = 0; j < 64; j++) {
                 if (id == tabuleiro[j]) {
                     if (podeAtacar(idItem, peca, id) == true) {

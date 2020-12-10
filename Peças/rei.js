@@ -1,9 +1,14 @@
+//var reiBrancoMovimentou = false;
+//var reiPretroMovimentou = false;
+
 function rei(idItem, peca) {
     console.log("rei " + idItem);
 
     let letra = idItem.charAt(0);
     let numero = parseInt(idItem.charAt(1));
     let arr = [];
+
+
 
     function coordenada(sinal1, sinal2) {
         j = 1;
@@ -35,6 +40,10 @@ function rei(idItem, peca) {
     coordenada(1, -1);
     coordenada(-1, -1);
     coordenada(-1, 1);
+
+    if (peca.charAt(1) == "B" && reiBrancoMovimentou == false) {
+        coordenada(2, 0);
+    }
 
     return arr;
 }

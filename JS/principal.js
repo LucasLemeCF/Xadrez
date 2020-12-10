@@ -2,6 +2,7 @@ var rodada = "B";
 var obj = [];
 var cor = null;
 var x = true;
+var fezMovimento = false;
 
 function seleciona(letra, numero) {
     var id = letra + numero;
@@ -11,8 +12,7 @@ function seleciona(letra, numero) {
 
     //mostra as jogadas possiveis
     if (rodada == cor) {
-        if (obj.length < 1) {
-            
+        if (obj.length < 1) {     
             obj.push(mostraJogadas(id));
             if (obj[0] == null) {
                 obj.pop(0);
@@ -79,17 +79,19 @@ function fazJogada(obj) {
             document.getElementById(ondeVai).classList.remove(temAlgo(ondeVai));
             document.getElementById(ondeVai).classList.add(peca);
             document.getElementById(id).classList.remove(peca);   
-            rodada == "B" ? rodada = "P" : rodada = "B";
-            console.log("rodada = " + rodada);
+            fezMovimento = true;
         }       
     }
+   if (fezMovimento == true) {
+        rodada == "B" ? rodada = "P" : rodada = "B";
+        console.log("rodada = " + rodada);
+        fezMovimento = false;
+   }
     obj.pop(0);
     obj.pop(1);
 }
 
 //mostra de quem é a rodada no console
-if (rodada == "B") {
-    console.log("rodada = Branco");
-} else {
-    console.log("rodada = Preto");
-}
+rodada == "B" ? console.log("rodada = Branco") : console.log("rodada = Preto");;
+
+console.log(reiBrancoMovimentou);

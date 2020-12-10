@@ -79,10 +79,10 @@ function fazJogada(obj) {
             document.getElementById(ondeVai).classList.remove(temAlgo(ondeVai));
             document.getElementById(ondeVai).classList.add(peca);
             document.getElementById(id).classList.remove(peca);   
+            rodada == "B" ? rodada = "P" : rodada = "B";
+            console.log("rodada = " + rodada);
         }       
     }
-    rodada == "B" ? rodada = "P" : rodada = "B";
-    console.log("rodada = " + rodada);
     obj.pop(0);
     obj.pop(1);
 }

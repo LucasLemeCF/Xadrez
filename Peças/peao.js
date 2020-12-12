@@ -27,7 +27,7 @@ function peao(idItem, peca) {
         }
     }
 
-   /* for (let index = -1; index <= 1 ; index++) {
+   for (let index = -1; index <= 1 ; index++) {
         if (index == 0) {index = 1}
         let indexLetra = arrLetras.indexOf(letra) + (index);
         if (peca.charAt(1) == "B") {
@@ -39,8 +39,7 @@ function peao(idItem, peca) {
             arr.push(id);
             document.getElementById(id).classList.add('vermelho');
         }
-        }
-    }*/
+    }
     
     return arr;
 }

@@ -93,12 +93,17 @@ function mostraJogadas(id) {
     }
 }
 
+var id;
+var movimentacao;
+var peca;
+var ondeVai;
+
 //move a peça
 function fazJogada(obj) {
-    let id = obj[0][0];
-    let movimentacao = obj[0][1];
-    let peca = obj[0][2];
-    let ondeVai = obj[1];
+    id = obj[0][0];
+    movimentacao = obj[0][1];
+    peca = obj[0][2];
+    ondeVai = obj[1];
     
     for (let i = 0; i < movimentacao.length; i++) {
         if (ondeVai == movimentacao[i] && peca.charAt(0) != "R") {
@@ -113,47 +118,23 @@ function fazJogada(obj) {
             if (peca == "TP" && id == "a8") {Ta8 = true; reiPretoEsquerdaMovimentou = true;}
             fezMovimento = true;
             
-        } else if (peca.charAt(0) == "R"  && ondeVai == movimentacao[i]) {
-            //regras para o hook
-            if (peca.charAt(1) == "B") {
-                if (ondeVai == "g1" && Th1 == false && reiBrancoDireitaMovimentou == false) {
-                    Direita = true;
-                    document.getElementById("h1").classList.remove("TB");
-                    document.getElementById("f1").classList.add("TB");
-                    reiBrancoDireitaMovimentou = true;
-                    Th1 = true;
-                } else if (ondeVai == "c1" && Ta1 == false && reiBrancoEsquerdaMovimentou == false) {
-                    document.getElementById("a1").classList.remove("TB");
-                    document.getElementById("d1").classList.add("TB");
-                    reiBrancoEsquerdaMovimentou = true;
-                    Ta1 = true;
-                }
-                reiBrancoDireitaMovimentou = true;
-                reiBrancoEsquerdaMovimentou = true;
-            } else if (peca.charAt(1) == "P") {
-                if (ondeVai == "g8" && Th8 == false && reiPretoDireitaMovimentou == false) {
-                    document.getElementById("h8").classList.remove("TP");
-                    document.getElementById("f8").classList.add("TP");
-                    reiPretoDireitaMovimentou = true;
-                    Th8 = true;
-                } else if (ondeVai == "c8" && Ta8 == false && reiPretoEsquerdaMovimentou == false) {
-                    document.getElementById("a8").classList.remove("TP");
-                    document.getElementById("d8").classList.add("TP");
-                    reiPretoEsquerdaMovimentou = true;
-                    Ta8 = true;
-                }
-                reiPretoDireitaMovimentou = true;
-                reiPretoEsquerdaMovimentou = true;
-            }
-            if (ondeVai != id) {
-                document.getElementById(ondeVai).classList.remove(temAlgo(ondeVai));
-                document.getElementById(ondeVai).classList.add(peca);
-                document.getElementById(id).classList.remove(peca);
-                fezMovimento = true;
-            }
-            
+        } else if (peca.charAt(0) == "R"  && ondeVai == movimentacao[i]) {         
+            hook();           
+        }
+        
+        //promoção do peão branco
+        if (peca == "PB" && ondeVai.charAt(1) == "8") {
+            document.getElementById("promocaoBranco").classList.remove("visibility");
+            document.getElementById("tabuleiro").classList.add("pointer");
+        } 
+        
+        //promoção do peão preto
+        if (peca == "PP" && ondeVai.charAt(1) == "1") {
+            document.getElementById("promocaoPreto").classList.remove("visibility");
+            document.getElementById("tabuleiro").classList.add("pointer");
         }
     }
+    //troca rodada
     if (fezMovimento == true) {
         rodada == "B" ? rodada = "P" : rodada = "B";
         console.log("rodada = " + rodada);
@@ -161,6 +142,54 @@ function fazJogada(obj) {
     }
     obj.pop(0);
     obj.pop(1);
+}
+
+//regra para o hook
+function hook() {
+    if (peca.charAt(1) == "B") {
+        if (ondeVai == "g1" && Th1 == false && reiBrancoDireitaMovimentou == false) {
+            Direita = true;
+            document.getElementById("h1").classList.remove("TB");
+            document.getElementById("f1").classList.add("TB");
+            reiBrancoDireitaMovimentou = true;
+            Th1 = true;
+        } else if (ondeVai == "c1" && Ta1 == false && reiBrancoEsquerdaMovimentou == false) {
+            document.getElementById("a1").classList.remove("TB");
+            document.getElementById("d1").classList.add("TB");
+            reiBrancoEsquerdaMovimentou = true;
+            Ta1 = true;
+        }
+        reiBrancoDireitaMovimentou = true;
+        reiBrancoEsquerdaMovimentou = true;
+    } else if (peca.charAt(1) == "P") {
+        if (ondeVai == "g8" && Th8 == false && reiPretoDireitaMovimentou == false) {
+            document.getElementById("h8").classList.remove("TP");
+            document.getElementById("f8").classList.add("TP");
+            reiPretoDireitaMovimentou = true;
+            Th8 = true;
+        } else if (ondeVai == "c8" && Ta8 == false && reiPretoEsquerdaMovimentou == false) {
+            document.getElementById("a8").classList.remove("TP");
+            document.getElementById("d8").classList.add("TP");
+            reiPretoEsquerdaMovimentou = true;
+            Ta8 = true;
+        }
+        reiPretoDireitaMovimentou = true;
+        reiPretoEsquerdaMovimentou = true;
+    }
+    if (ondeVai != id) {
+        document.getElementById(ondeVai).classList.remove(temAlgo(ondeVai));
+        document.getElementById(ondeVai).classList.add(peca);
+        document.getElementById(id).classList.remove(peca);
+        fezMovimento = true;
+    }
+}
+
+function promocao(peca) {
+    document.getElementById(ondeVai).classList.remove(temAlgo(ondeVai));
+    document.getElementById(ondeVai).classList.add(peca);
+    document.getElementById("promocaoBranco").classList.add("visibility");
+    document.getElementById("promocaoPreto").classList.add("visibility");
+    document.getElementById("tabuleiro").classList.remove("pointer");
 }
 
 //mostra de quem é a rodada no console

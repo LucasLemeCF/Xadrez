@@ -34,11 +34,14 @@ function peao(idItem, peca) {
             id = (arrLetras[indexLetra] + (numero + 1));
         } else if (peca.charAt(1) == "P") {
             id = (arrLetras[indexLetra] + (numero - 1));
-        }
-        if (podeAtacar(idItem, peca, id) == true) {
-            arr.push(id);
-            document.getElementById(id).classList.add('vermelho');
-        }
+        }for (let index = 0; index < 64; index++) {
+            if (id == tabuleiro[index]) {
+                if (podeAtacar(idItem, peca, id) == true) {
+                    arr.push(id);
+                    document.getElementById(id).classList.add('vermelho');
+                }
+            } 
+        }    
     }
     
     return arr;

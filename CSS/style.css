@@ -9,6 +9,7 @@ body {
     margin-top: 0px;
     margin-left: 0px;
 }
+
 .branco {
     color:#eeeed2;
     font-size: 20px;
@@ -16,7 +17,6 @@ body {
     margin-top: 0px;
     margin-left: 0px;
 }
-
 
 .letra {
     margin-top: 50px;
@@ -26,7 +26,6 @@ body {
     position: absolute;
 }
 
-
 #principal {
     display: flex;
     justify-content: center;
@@ -35,15 +34,12 @@ body {
 }
 
 #tabuleiro {
-    background-color: #eeeed2;
+    background-image: url("//images.chesscomfiles.com/chess-themes/boards/green/150.png");
+    background-size: 600px;
     width: 600px;
     height: 600px;
     display: flex;
     flex-flow: wrap;
-}
-
-.vd {
-    background-color:#769656;
 }
 
 .quadrado {
@@ -66,6 +62,35 @@ img {
 .vermelho {
     background-color:#e97763;
 }
+
+/*Promoção*/
+.promocaoBarra {
+    display: flex;
+    z-index: 1000;
+    width: 300px;
+    height: 76px;
+    background-color: white;
+    border: 1px solid #363532;;
+    position: absolute;
+}
+
+#promocaoBranco { margin-top: 112.5px;}
+#promocaoPreto { margin-top: 412.5px;}
+.visibility {visibility: hidden;}
+
+.promocao {
+    z-index: 1001;
+    width: 75px;
+	height: 75px;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.promocao:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.pointer {pointer-events: none;}
 
 /*Imagem das peças tirado do site chess.com*/
 .TB { background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wr.png'); cursor: pointer;}

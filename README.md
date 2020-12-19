@@ -1,2 +1,6 @@
-Xadrez feito com Javascrit apenas para treino. Ainda não está finalizado.</br>
+Xadrez feito com Javascrit apenas para treino de programação.</br>
 Link para testar: https://lucaslemecf.github.io/Xadrez/
+
+Diferenças entre o jogo original: </br>
+- Não há a regra en passant devido a sua complexidade e por não ser tão utilizada(pelo menos não por iniciantes). </br>
+- Não há empate por afogamento, caso ocorra, os próprios jogadores deverão nota-lo e declarar empate.

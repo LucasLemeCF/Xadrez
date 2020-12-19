@@ -65,3 +65,27 @@ function podeAtacar(idItem, peca, id) {
         }       
     }
 }
+
+//verifica se o rei esta no tabuleiro
+function temRei() {
+    let branco = 0;
+    let preto = 0;
+
+    document.querySelectorAll('.quadrado').forEach(element => {
+        if (element.classList.contains("RB")) {
+        } else branco++;
+    });
+    if (branco == 64) {
+        let peca = "RB"
+        return peca;
+    }
+
+    document.querySelectorAll('.quadrado').forEach(element => {
+        if (element.classList.contains("RP")) {
+        } else preto++;
+    });
+    if (preto == 64) {
+        let peca = "RP"
+        return peca;
+    }
+}

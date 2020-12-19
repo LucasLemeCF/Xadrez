@@ -118,7 +118,7 @@ function fazJogada(obj) {
             if (peca == "TP" && id == "a8") {Ta8 = true; reiPretoEsquerdaMovimentou = true;}
             fezMovimento = true;
             
-        } else if (peca.charAt(0) == "R"  && ondeVai == movimentacao[i]) {         
+        } else if (peca.charAt(0) == "R"  && ondeVai == movimentacao[i]) {   
             hook();           
         }
         
@@ -139,6 +139,15 @@ function fazJogada(obj) {
         rodada == "B" ? rodada = "P" : rodada = "B";
         console.log("rodada = " + rodada);
         fezMovimento = false;
+    }
+    //verifica se há um ganhador
+    if (temRei() == "RB") {
+        document.getElementById("vencedor").classList.remove("visibility");
+        document.getElementById("vencedorPreto").classList.remove("visibility");
+    } 
+    if (temRei() == "RP") {
+        document.getElementById("vencedor").classList.remove("visibility");
+        document.getElementById("vencedorBranco").classList.remove("visibility");
     }
     obj.pop(0);
     obj.pop(1);
@@ -190,6 +199,10 @@ function promocao(peca) {
     document.getElementById("promocaoBranco").classList.add("visibility");
     document.getElementById("promocaoPreto").classList.add("visibility");
     document.getElementById("tabuleiro").classList.remove("pointer");
+}
+
+function reiniciar() {
+   window.location.reload();
 }
 
 //mostra de quem é a rodada no console

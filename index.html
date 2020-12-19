@@ -27,6 +27,8 @@
             <div class="promocao" onclick="promocao('BP')" style="background-image: url('https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bb.png');"></div>
         </div>
 
+        <div id="vencedor" class="visibility"><div id="vencedorBranco" class="visibility">Branco Venceu</div><div id="vencedorPreto" class="visibility">Preto Venceu</div><div id="reiniciar" onclick="reiniciar()">Reiniciar ⭯</div></div>
+
         <div id="tabuleiro">
             <div class="quadrado nd TP" id="a8" onclick="seleciona('a',8)"><p class="verde">8</p></div>
             <div class="quadrado vd CP" id="b8" onclick="seleciona('b',8)"></div>
@@ -100,7 +102,6 @@
             <div class="quadrado vd CB" id="g1" onclick="seleciona('g',1)"><p class=" branco letra">g</p></div>
             <div class="quadrado nd TB" id="h1" onclick="seleciona('h',1)"><p class=" verde letra">h</p></div>
         </div>
-
     </div>
 
     <script src="JS/principal.js" type="text/javascript" ></script>
